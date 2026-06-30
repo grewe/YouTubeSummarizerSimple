@@ -112,14 +112,15 @@ DEFAULT_PROJECT_ID = "REPLACE_WITH_YOUR_PROJECT_ID"
 
 ### Run the app locally
 1. Install dependencies:
-   ```bash
+```bash
    pip install -r requirements.txt
 ```
 
 2. run app:
-  ```bash
+
+```bash
   python app.py
-  ```
+```
 
 ### Deployment to Google Cloud Run
 
