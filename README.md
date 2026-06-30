@@ -116,10 +116,10 @@ DEFAULT_PROJECT_ID = "REPLACE_WITH_YOUR_PROJECT_ID"
    pip install -r requirements.txt
 ```
 
-2. run app
-```bash
-python app.py
-```
+2. run app:
+  ```bash
+  python app.py
+  ```
 
 ### Deployment to Google Cloud Run
 
