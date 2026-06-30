@@ -103,16 +103,9 @@ bash setup-cloud.sh
 Replace
 
 ```python
-PROJECT_ID = "REPLACE_WITH_YOUR_PROJECT_ID"
+DEFAULT_PROJECT_ID = "REPLACE_WITH_YOUR_PROJECT_ID"
 ```
 
-with
-
-```python
-PROJECT_ID = "YOUR_PROJECT_ID"
-```
-
-Alternatively, modify the application to read the project ID from an environment variable.
 
 ---
 # Run Application

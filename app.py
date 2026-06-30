@@ -8,8 +8,17 @@ from google.genai import types
 app = Flask(__name__)
 
 # Automatically detect the project ID from the environment or use the hardcoded fallback
-PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT", "affable-anagram-500422-u4")
+# Default project ID
+DEFAULT_PROJECT_ID = "affable-anagram-500422-u4"
+
+# Use the environment variable if it exists
+PROJECT_ID = os.environ.get(
+    "GOOGLE_CLOUD_PROJECT",
+    DEFAULT_PROJECT_ID
+)
+
 print(f"Starting app with Project ID: {PROJECT_ID}")
+
 
 # Initialize the Gemini GenAI client using Vertex AI.
 client = genai.Client(
