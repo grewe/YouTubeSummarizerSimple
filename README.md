@@ -166,7 +166,7 @@ List all Cloud Run services in the deployment region:
 ```bash
 gcloud run services list --region us-central1
 ```
-s
+
 Example output:
 
 ```text
