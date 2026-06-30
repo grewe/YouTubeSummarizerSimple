@@ -38,7 +38,7 @@ This application is a Flask-based web service that leverages **Google Gemini** m
 ## Clone Repository
 ```bash
 git clone https://github.com/grewe/YouTubeSummarizerSimple.git
-cd amazing-gemini-app
+cd YouTubeSummarizerSimple
 ```
 
 ---
