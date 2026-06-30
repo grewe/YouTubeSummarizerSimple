@@ -114,7 +114,7 @@ DEFAULT_PROJECT_ID = "REPLACE_WITH_YOUR_PROJECT_ID"
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
-
+```
 
 2. run app
 ```bash
