@@ -16,7 +16,7 @@ This application is a Flask-based web service that leverages **Google Gemini** m
 ## Prerequisites
 * **Google Cloud Project**: An active project with the **Vertex AI API** enabled.
 * **Project ID**: The project ID currently set in `app.py` is `affable-anagram-500422-u4`.
-* **Cloud Storage**: Videos must be stored in a GCS bucket (e.g., `gs://bucket-name/video.mp4`) that the service account has permissions to read.
+
 * **Authentication**: Locally, you should have Application Default Credentials configured via `gcloud auth application-default login`.
 
 
