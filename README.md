@@ -122,9 +122,107 @@ Alternatively, modify the application to read the project ID from an environment
    ```bash
    pip install flask google-genai
 
-### Deployment
+
+2. run app
+```bash
+python app.py
+```
+
+### Deployment to Google Cloud Run
 gcloud config set project [PROJECT_ID]
 gcloud run deploy --source .
 OR gcloud run deploy youtube-summarizer --source . --region us-central1 
 
 NOTE: It will prompt you to enter a name for your service, let's say "youtube-summarizer". Choose the corresponding number for the region "us-central1". Say "y" when it asks if you want to allow unauthenticated invocations. Note that we are allowing unauthenticated access here because this is a demo application. Recommendation is to use appropriate authentication for your enterprise and production applications.
+
+
+# (CLEANUP) Remove the Cloud Run Service
+
+### Option 1: Using the Google Cloud CLI
+
+List all Cloud Run services in the deployment region:
+
+```bash
+gcloud run services list --region us-central1
+```
+s
+Example output:
+
+```text
+SERVICE               REGION
+youtube-summarizer    us-central1
+```
+
+Delete the Cloud Run service:
+
+```bash
+gcloud run services delete youtube-summarizer \
+    --region us-central1
+```
+
+When prompted:
+
+```text
+Do you want to continue (Y/n)?
+```
+
+Type:
+
+```text
+Y
+```
+
+to permanently delete the service.
+
+---
+
+### Option 2: Using the Google Cloud Console
+
+1. Open **Google Cloud Console**.
+2. Navigate to **Cloud Run**.
+3. Select the service (e.g., `youtube-summarizer`).
+4. Click **Delete**.
+5. Confirm the deletion.
+
+---
+
+## Verify the Service Has Been Removed
+
+```bash
+gcloud run services list --region us-central1
+```
+
+The deleted service should no longer appear in the list.
+
+---
+
+## What Is Deleted?
+
+Deleting the Cloud Run service removes:
+
+- The deployed web application
+- The Cloud Run service configuration
+- The public Cloud Run URL
+
+The following resources are **not** deleted:
+
+- Source code
+- GitHub repository
+- Cloud Shell project files
+- Cloud Storage buckets
+- Firestore databases
+- Artifact Registry container images
+
+---
+
+## Optional: Remove Container Images
+
+Cloud Run stores built container images in **Artifact Registry**. These images remain after the Cloud Run service is deleted.
+
+To list Artifact Registry repositories:
+
+```bash
+gcloud artifacts repositories list
+```
+
+You can later delete unused repositories or container images if you wish to reclaim storage.
