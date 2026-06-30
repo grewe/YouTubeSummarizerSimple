@@ -43,14 +43,50 @@
  <body>
    <div class="container">
      <h2>YouTube Summarizer</h2>
-     <form action="/summarize" target="_blank" method="post">
+     <form id="summaryForm"></form>
+     <!form action="/summarize" target="_blank" method="post">
        <input type="text" name="youtube_link" placeholder="Enter YouTube Link">
        <select name="model">
-		 <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
+		    <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
        </select>
        <textarea name="additional_prompt" placeholder="Write your additional prompt here. For example: 'explain to me like I am five years old'"></textarea>
        <button type="submit">Summarize</button>
      </form>
    </div>
+
+   <h3>Summary</h3>
+
+  <div id="summaryResult"
+      style="
+          margin-top:20px;
+          padding:15px;
+          border:1px solid #ccc;
+          background:#fafafa;
+          text-align:left;
+      ">
+  </div>
+
+
+<script>
+
+document.getElementById("summaryForm").addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    const response = await fetch("/summarize",{
+        method:"POST",
+        body:formData
+    });
+
+    const summary = await response.text();
+
+    document.getElementById("summaryResult").innerHTML = summary;
+
+});
+
+</script>
+
  </body>
 </html>
