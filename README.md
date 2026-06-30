@@ -15,7 +15,7 @@ This application is a Flask-based web service that leverages **Google Gemini** m
 ---
 ## Prerequisites
 * **Google Cloud Project**: An active project with the **Vertex AI API** enabled.
-* **Project ID**: The project ID currently set in `app.py` is `affable-anagram-500422-u4`.
+* **Project ID**: The project ID currently set in `app.py` is `XXXXXX`. YOU must change it
 
 * **Authentication**: Locally, you should have Application Default Credentials configured via `gcloud auth application-default login`.
 
@@ -37,7 +37,7 @@ This application is a Flask-based web service that leverages **Google Gemini** m
 
 ## Clone Repository
 ```bash
-git clone https://github.com/grewe/amazing-gemini-app.git
+git clone https://github.com/grewe/YouTubeSummarizerSimple.git
 cd amazing-gemini-app
 ```
 
@@ -120,7 +120,7 @@ Alternatively, modify the application to read the project ID from an environment
 ### Run the app locally
 1. Install dependencies:
    ```bash
-   pip install flask google-genai
+   pip install -r requirements.txt
 
 
 2. run app
@@ -129,11 +129,32 @@ python app.py
 ```
 
 ### Deployment to Google Cloud Run
-gcloud config set project [PROJECT_ID]
-gcloud run deploy --source .
-OR gcloud run deploy youtube-summarizer --source . --region us-central1 
 
-NOTE: It will prompt you to enter a name for your service, let's say "youtube-summarizer". Choose the corresponding number for the region "us-central1". Say "y" when it asks if you want to allow unauthenticated invocations. Note that we are allowing unauthenticated access here because this is a demo application. Recommendation is to use appropriate authentication for your enterprise and production applications.
+make sure project set correctly if not
+```bash
+gcloud config set project [PROJECT_ID]
+```
+
+
+now deploy
+
+```bash
+gcloud run deploy --source .
+```
+
+OR
+```bash
+gcloud run deploy youtube-summarizer --source . --region us-central1 
+```
+
+OR
+```bash
+gcloud run deploy youtube-summarizer \
+  --source . \
+  --region us-central1 \
+  --allow-unauthenticated
+```
+NOTE: Depending on your choice above it will prompt you to enter a name for your service, let's say "youtube-summarizer". Choose the corresponding number for the region "us-central1". Say "y" when it asks if you want to allow unauthenticated invocations. Note that we are allowing unauthenticated access here because this is a demo application. Recommendation is to use appropriate authentication for your enterprise and production applications.
 
 
 # (CLEANUP) Remove the Cloud Run Service
