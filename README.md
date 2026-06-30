@@ -37,7 +37,7 @@ This application is a Flask-based web service that leverages **Google Gemini** m
 
 ## Clone Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/amazing-gemini-app.git
+git clone https://github.com/grewe/amazing-gemini-app.git
 cd amazing-gemini-app
 ```
 
