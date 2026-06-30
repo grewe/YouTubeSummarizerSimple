@@ -91,6 +91,10 @@ gcloud services enable aiplatform.googleapis.com
 
 ---
 
+OR edit and run setup-cloud.sh
+bash setup-cloud.sh
+
+
 ## Update app.py
 
 Replace
